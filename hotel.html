@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>远航酒店管理系统</title>
+    <link rel="shortcut icon"  href="images/home.png" />
+</head>
+<style type="text/css">
+	*{padding:0;margin:0;}
+	body{background: url(images/beijing.jpg);background-size:cover;}
+	.title{width: 100%;height: 100px;background:#003366;display: inline-block;}
+	/*远航*/
+	.title #name{
+		width:90px;
+		height:55px;
+		display: block;
+		line-height:40px;
+		font-size: 35px;
+		color:#fff;
+		margin:20px 0 0 80px;
+		border-right:2px solid #fff;
+		float:left;
+		font-family: 幼圆;
+	}
+	/*拼音*/
+	.title #name p{ 
+		display: block;
+        float: left;
+        font-size: 14px;
+        line-height: 0px;
+        margin: 5px 0 0 3px;
+	}
+	/*酒店管理系统*/
+	.title #name1{
+		display: block;
+		line-height:85px;
+		font-size: 25px;
+		color:#fff;
+		float:left;
+		margin-left: 15px;
+		letter-spacing: 3px;
+		}
+		/*拼音*/
+	.title #name1 p{
+		display: block;
+        float:left;
+        position: absolute;
+        font-size: 14px;
+        line-height:0px;
+        letter-spacing: 0;
+        top:65px;
+        
+	}
+	/*常见问题*/
+	.title  #link a{
+		line-height: 100px;
+		text-decoration: none;
+		color:#fff;
+		margin-right: 50px;
+	}
+	.title  #link img{
+		margin-right: 10px;
+		
+	}
+	/*在线客服*/
+	.title #link{
+		float: right;
+		margin-right: 15%;
+	}
+	/*登陆界面*/
+	#denglu{
+		width: 300px;
+		height: 320px;
+		background: #fff;
+		float: right;
+		margin:8% 16%;
+		border:8px solid #cdcdcd;
+	}
+	#zi{
+		margin: 7% 0 0 13%;
+	}
+	/*登录的头*/
+	#denglu #head{
+		width: 300px;
+		height:50px;
+		font-size: 20px;
+		text-align: center;
+		line-height: 50px;
+		border-bottom: 1px solid #cdcdcd;
+	}
+	/*用户名登录这个块*/
+	#denglu .yanzheng{
+		width:250px;
+		height: 45px;
+		margin:20px auto;
+	}
+	#denglu .yanzheng img{
+		width: 30px;
+		height:30px;
+		margin-top: 10px; 
+		position: absolute;
+	}
+	#denglu .yanzheng input{
+		height:25px;
+		width: 180px;
+		margin-left:45px;
+		margin-top: 12px;
+	}
+	/*提交*/
+	#denglu .submit{
+		width:300px;
+		height: 35px;
+		margin:45px auto;
+		
+	}
+	#denglu .submit input{
+		width: 225px;
+		height:35px;
+		background: #0066cc;
+		margin-left:30px;
+		cursor:pointer;
+		color: #fff;
+		border-radius:6px; 
+		font-size: 16px;
+		font-weight: bold;
+		letter-spacing: 20px;
+		text-indent: 20px;
+		text-align: center;
+		font-family: 幼圆;
+	}
+	/*最后一个加盟块*/
+	#denglu .jiameng{
+		display: block;
+		background: #c6c6c6;
+		margin: -30px 0 0 30px;
+		width: 80px;
+		height:25px;
+		text-align: center;
+		line-height: 25px;
+		color:#327ced;
+		cursor: pointer;
+	}
+</style>
+<body>
+<!-- 头div -->
+	<div class="title">
+		<span id="name">远航 <p> Yuan Hang</p></span>
+		<span id="name1">酒店管理系统 <p>Hotel Management System</p></span>
+		<div id="link">    
+			<img src="images/question.png"><a href="#">常见问题</a>
+			<img src="images/kefu.png"><a href="#">在线客服</a>
+		</div>
+	</div>
+	<img id="zi" src="images/zi.png">
+	<!-- 登录这个div -->
+	<div id="denglu">
+		
+		<div id="head">酒店管理员登录</div>
+		<!-- 用户名输入 -->
+		<div class="yanzheng">
+			<img src="images/yonghu1.png" style="width:28px;height:28px">
+			<input id="name2" type="text" name="name2" placeholder="用户名"/>
+		</div>
+		<!-- 密码输入 -->
+		<div class="yanzheng">
+			<img src="images/mima.png">
+			<input type="password" name="password"  id="password"  placeholder="密码"/>
+		</div>
+		<!-- 忘记密码 -->
+		<a href="#" style="float:right;margin:-10px 40px 0 0;text-decoration:none;">修改登录密码？</a>
+		<!-- 提交用户信息 -->
+		<div class="submit">
+			<input type="button" name="submit1" value="登录" id="submit1"/>
+		</div>
+
+		<span class="jiameng">加盟本店</span>
+	</div>
+	<script type="text/javascript">
+		window.onload=function denglu(){
+			var name1 = document.getElementById("name2"); 
+			var password1 = document.getElementById("password");
+			var submit1 = document.getElementById("submit1");
+			submit1.onclick=function(){	
+				if(name1.value=="04123170" && password1.value=="123456"){
+				window.location.href="hotel_content.html";
+					
+				}
+				else{alert("密码不正确!");}
+			}
+		}
+	</script>
+</body>

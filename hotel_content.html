@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>远航酒店管理系统</title>
+     <!--<script>
+    //     var username = undefined;
+    //     if(!username)
+    //     {
+    //         window.location=("hotel.html");
+    //     }
+    // </script>-->
+    <link rel="shortcuticon"  href="images/home.png" />
+    <style type="text/css">
+  
+    </style>
+    <link href="css/hotel.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <!-- 头div -->
+	<div class="head">
+        <!-- logo块 -->
+        <div class="logo"><img src="images/logo.png"></div>
+        <!-- 酒店名字 -->
+        <span class="name">远航皇城大酒店管理平台<p>YuanHangHuangCheng Hotel Management Platform</p></span>
+        <ul id="list">
+            <li class="Function"><img src="images/shouye.png"><p>首页</p></li>
+            <li class=""><img src="images/search.png"><p>房态图</p></li>
+            <li class=""><img src="images/tongji.png"><p>统计</p></li>
+            <li class=""><img src="images/weihu.png"><p style="letter-spacing:0px;">系统维护</p></li>
+            <li class=""><img src="images/more.png"><p>更多</p></li>
+        </ul> 
+    </div>
+
+    <!-- 酒店首页内容 -->
+    <div class="content" style="display:block;">
+        <!-- 内容中左边栏目 -->
+        <div class="content1">
+            <dl class="admin">
+                <dt>04123170<p style="display:block;margin-top:-48px;">号</p></dt>   
+                <dd><b style="color:#369da3;">小马</b> 管理员 <br>欢迎登录！</dd>
+            </dl>
+            <ul id="son_list"> 
+                <li class="gongneng"><img src="images/yuding.png"><span>预订</span></li>
+                <li class=""><img src="images/dengji.png"><span>登记</span></li>
+                <li class=""><img src="images/xuding.png"><span>续房</span></li>
+                <li class=""><img src="images/tiaofang.png"><span>调房</span></li>
+                <li class=""><img src="images/bill.png"><span>结账</span></li> 
+                <!-- <li class=""><img src="images/tuifang.png"><span>退房</span></li>   --> 
+            </ul>
+        </div>
+        <!-- 内容中右边模块 -->
+        <div class="content2">
+            <!-- 显示位置和时间 -->
+            <div class="address">
+               <img src="images/home.png"><span>您当前的位置:首页>预定</span>
+               <span id="time"></span>
+            </div>
+            <!-- 每点击一个功能显示一个内容块 -->
+            <ul id="son_content">
+                <li style="display:block;">
+                    <!-- <form action="#"> -->
+                    <div id="customer">
+                        <fieldset id="customer1">
+                            <legend>客户信息</legend>
+                            <table>
+                                <tr><th>客户姓名:</th><td><input type="text" name="Name" /></td></tr>
+                                <tr><th>联系电话:</th><td><input type="text" name="phone" /></td></tr>
+                                <tr><th>宾客类型:</th><td><select name="select"><option value="普通宾客">普通宾客</option><option value="VIP会员">VIP会员</option></select></td></tr>
+                            </table>
+                        </fieldset>
+                        <fieldset id="customer2">
+                            <legend>预订信息</legend>
+                            <table>
+                                <tr>
+                                    <th>预抵时间:</th>
+                                    <td>
+                                        <input id="todate" type="text" name="todate" /><input type="text" id="totime" name="totime" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>保留时长:</th>
+                                    <td>
+                                        <input id="savetime" type="text" name="savetime" />
+                                        <span id="hours">小时<span>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <th>预住天数:</th>
+                                    <td>
+                                        <input type="text" name="orderdays" />
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <th>预订押金:</th>
+                                    <td>
+                                        <input type="text" name="ordermoney" />
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <th>营销人员:</th>
+                                    <td>
+                                        <select name="select">
+                                            <option value="小马">小马</option>
+                                            <option value="杨帅">杨帅</option>
+                                            <option value="张三">张三</option>
+                                            <option value="经纬">经纬</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>预订房型:</th>
+                                    <td>
+                                        <select name="select">
+                                            <option value="标准间">标准间</option>
+                                            <option value="大床房">大床房</option>
+                                            <option value="豪华套房">豪华套房</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <th>预订房号:</th>
+                                    <td>
+                                        <input id="orderhousenum" type="text" name="orderhousenum" />
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <th>预订间数:</th>
+                                    <td>
+                                        <input id="orderHouses" type="text" name="ordernums" />
+                                    </td>
+                                </tr>
+                                <!-- 备注的英语是 remark -->
+                                 <tr>
+                                    <th >备注消息:</th>
+                                    <td>
+                                        <textarea  id="remark" cols="20" rows="4" style="resize:none;"> </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                      <input id="save" type="submit" name="submit" value="保存">
+                                      <input id="chongzhi" type="reset" name="reset" value="重置">
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                <!--   </form> -->
+                    <div id="orderHouse">
+                        <fieldset id="House1">
+                            <legend>可供预订的房间</legend>
+                            <div id="searchHouse">
+                                房间类型:<select name="select" id="housetype">
+                                            <option value="标准间">标准间</option>
+                                            <option value="大床房">大床房</option>
+                                            <option value="豪华套房">豪华套房</option>
+                                        </select>
+                                房间号:<input type="text" name="housenums" style="width:130px;height:20px;"/>
+                                <input type="submit" name="searchbtn" id="searchbtn" value="查询">   
+                            </div> 
+                            <!-- 显示房间信息的div -->
+                            <div id="tablehouse">
+                                <table cellspacing='0'>
+                                  <tr><th>房间号</th><th>房间类型</th><th>所在区域</th><th>房间单价</th></tr>
+                                  <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                                  <tr><td>13</td><td>2</td><td>3</td><td>4</td></tr>
+                                  <tr><td>14</td><td>2</td><td>3</td><td>4</td></tr>
+                                  <tr><td>15</td><td>2</td><td>3</td><td>4</td></tr>
+                                  <tr><td>16</td><td>2</td><td>3</td><td>4</td></tr>
+                                </table>
+                            </div>
+                        </fieldset>
+                         <fieldset id="House2">
+                            <legend>已经预订的顾客</legend>
+                            <div class="ordercustomekr">
+                             <table cellspacing='0'>
+                              <tr><th>预订房号</th><th style="width:15%;">客户姓名</th><th>联系电话</th><th>预订押金</th><th>预抵时间</th></tr>
+                              <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+                              <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+                              <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+                              </table>
+                             </div> 
+                        </fieldset>
+                        <input type="button" name="delhouse" id="delhouse" value="删除预订客户"> 
+                    </div>
+                </li>
+                <!-- 登记模块 -->
+                <li>
+                  <div id="register"><p>顾客登记</p></div>
+                    <div id="register_infor">
+                        <div id="customer_infor1">
+                          <span class="toright"><p>客房信息</p><img src="images/toright.png"></span>
+
+                          <span id="house_infor">
+                           客户房间: <input type="text" id="dengji_num" name="customer_house" style="font-size:17px;font-weight: bold;color: blue;"/>
+                           房间类型: <select name="customer_housetype"><option value="标准间">标准间</option><option value="大床房">大床房</option><option value="豪华套间">豪华套间</option></select>
+                           预设单价: <input type="text" name="customer_houseprice"style="font-size:17px;font-weight: bold;color: blue;"/>
+                           入住天数: <input type="text" name="customer_days"/><br>
+                           宾客类型: <select name="select"><option value="普通宾客">普通宾客</option><option value="VIP会员">VIP会员</option></select>
+                           VIP 编号: <input type="text" name="customer_vip" />
+                           折后房价: <input type="text" name="customer_saleprice"style="margin-right:0;font-size:17px;font-weight:bold;color:red;"/><input type="text" name="customer_sale"style="width:70px;"/>
+                          </span>
+                        </div>
+                          <div id="customer_infor2">
+                            <span class="toright"><p>客人信息</p><img src="images/toright.png"></span>
+                            <table cellspacing='0'>
+                              <tr style="max-width:80px;"><td><p>主客姓名: </p></td><td><input type="text" name="Name"/></td><td><p>证件类型:</p> </td><td><select name="IDcard"><option value="身份证">身份证</option><option value="驾驶证">驾驶证</option></select></td><td><p>证件号码:</p></td><td><input type="text" name="Name"/></td></tr>
+                              
+                              <tr><td><p>主客性别:</p> </td><td><input style="width:15px;height:15px;margin-right:10px;" type="radio" name="man"/>男 <input style="width:15px;height:15px;margin-right:10px;" type="radio" name="man"/>女</td><td><p>主客民族: </p></td><td><input type="text" name="Name"/></td><td><p>联系电话:</p> </td><td><input type="text" name="Phone"/></td></tr>
+                              
+                              <tr><td><p>入住天数:</p> </td><td><input type="text" name="days"/><td><p>入住时间:</p> </td><td><input type="text" name="Name"/> <td><p>顾客人数:</p> </td><td><input type="text" name="Nums"/></td></tr>
+                              
+                               <tr><td><p>备注信息:</p></td><td colspan="5"><textarea id="remark1" style="float:left;border: 1px solid #cacaca;resize:none;" cols="30" rows="4"></textarea></td></tr>
+                             </table>
+                          </div>
+                         <!-- <td></td> -->
+                          <div id="customer_infor3">
+                              <span class="toright"><p>实时缴费</p><img src="images/toright.png"></span>
+                              <span id="House_price">
+                                 支付方式: <select name="cash"><option value="现金">现金</option><option value="信用卡">信用卡</option></select> <br>
+                                 实收房费: <input  type="text" name="fangfei"/>
+                                 实收押金: <input  type="text" name="yajin"/>
+                              </span>
+                          </div>
+                          <div id="customer_btn">
+                            <input id="customer_submit" type="button" name="submit1" value="保存"/>
+                            <input id="customer_reset" type="button" name="reset1" value="重置"/> 
+                          </div>
+                      
+                    </div>
+                    <div id="register_record">
+                      <span class="toright"><p>登记记录</p><img src="images/toright.png"></span>
+                      <div id="record_table">
+                        <table cellspacing='0'>
+                          <tr><th>房间号</th><th>姓名</th><th>应收押金</th><th>实收金额</th><th>入住时间</th><th>入住天数</th></tr>
+                        </table>
+                      </div>
+                      <div id="record_btn">
+                        <input id="record_update" type="button" name="record_update" value="修改"/>
+                        <input id="record_del" type="button" name="record_del" value="删除"/> 
+                      </div>
+                    </div>
+                </li>   
+                <!-- 续房模块 -->
+                <li id="xufang">
+                    <img style="width:100%;height:99%;" src="images/hotel.jpg">  
+                </li>
+                <div id="xufangUI">
+                    <div id="xufang_head"><span class="xufang_name">续住房间</span></div>
+                    <div id="xufang_content">
+                      房间号码:<input type="text" name="xufang_num" />
+                      客户姓名:<input type="text" name="xufang_name1" />
+                      续住天数:<input type="text" name="xufang_days" />
+                      付款方式:<select name="xufang_cash"><option value="现金">现金</select>
+                      缴付金额:<input type="text" name="xufang_money" />
+                      备注: <textarea  style="resize:none;float:right;margin:8px 0px 0 0;" cols="14" rows="4"></textarea>
+                      <span id="xufang_btn">
+                        <input id="xufang_submit" type="submit" name="submit1" value="提交"/>
+                        <input id="xufang_reset" type="reset" name="reset1" value="重置"/>
+                      </span>
+                    </div>
+                 </div>
+                 <!-- 调房模块 -->
+                <li>
+                  <div id="house_exchange">
+                    <span id="house_exchange1">更换房间</span>
+                    <div id="house_exchange2">
+                      原房间: <input type="text" id="exchanging"/><br>
+                      调整为: <input type="text" id="exchanger"/><br>
+                      <input style="width:15px;height:15px;" type="radio" name="same"/> <span style="font-size: 14px;">同类房调换</span> <input style="width:15px;height:15px;" type="radio" name="same"/> <span style="font-size: 14px;">非同类房调换</span><br>
+                      房&nbsp价: <input type="text" id="exchanger_price" style="color:red;"/><br>
+                      <input style="width:15px;height:15px;" type="checkbox" name="exchange_price1"> <span style="font-size:14px;">将原房间费用转至目标房</span><br><br>
+                     
+                        <input type="submit" name="submit" value="确定" style="width:60px;height:23px;cursor:pointer;display:block;float:left;margin-left:15%;font-size:15px;color: #000;"/>
+                        <input type="reset" name="reset" value="重置" style="width:60px;height:23px;cursor:pointer;display:block;float:left;margin-left:30px;font-size:15px;color: #000;" />
+                    </div>
+                  </div>
+                  <div id="house_list">
+                     <fieldset class="House1">
+                            <legend style="font-weight:bold;">可供更换的房间</legend>
+                            <div class="searchHouse">
+                                房间类型:<select name="select" class="housetype">
+                                            <option value="标准间">标准间</option>
+                                            <option value="大床房">大床房</option>
+                                            <option value="豪华套房">豪华套房</option>
+                                        </select>
+                                房间号:<input type="text" name="housenums" style="width:130px;height:20px;"/>
+                                <input type="submit" name="searchbtn" id="searchbtn" value="查询">   
+                            </div> 
+                            <!-- 显示房间信息的div -->
+                            <div class="tablehouse">
+                                <table cellspacing='0'>
+                                  <tr><th>房间号</th><th>房间类型</th><th>所在区域</th><th>房间单价</th></tr>
+                                  <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                                  <tr><td>13</td><td>2</td><td>3</td><td>4</td></tr>
+                                  <tr><td>14</td><td>2</td><td>3</td><td>4</td></tr>
+                                  <tr><td>15</td><td>2</td><td>3</td><td>4</td></tr>
+                                  <tr><td>16</td><td>2</td><td>3</td><td>4</td></tr>
+                                </table>
+                            </div>
+                        </fieldset>
+                  </div>
+                </li>
+                <!-- 结账模块 -->
+                 
+                <li>
+                  <div id="select_housenum">
+                    <span>结账房间号:</span> 
+                    <input id="select_housenum1" type="text" name="select_housenum1" value=""/>
+                    <input id="select_house" type="button" name="select_house" value="结账" />
+                  </div>
+                  <div id="checkout_content">
+                    <div id="checkout_head">
+                       客房结账
+                    </div>
+                    <div id="checkout_content1">
+                      <span>结账房间:<input type="text" name="checkout_num"/>
+                        客户姓名:<input type="text" name="checkout_name" disabled="true"/>
+                        宾客类型:<input style="width:80px;" type="text" name="checkout_type"disabled="true"/><br>
+                        结账单号:<input style="width:160px;" type="text" name="checkout_order" disabled="true"/>
+                        消费金额:<input type="text" name="checkout_money"disabled="true" value="1001"/>
+                        住房天数:<input type="text" name="checkout_time"disabled="true"/>
+                      </span>
+                    </div>
+                    <div id="checkout_content2">
+                       <span>
+                        VIP编号:<input style="width:120px;" type="text" name="vip_num"/>
+                        VIP姓名:<input style="width:80px;" type="text" name="vip_name"/>
+                        卡余额:<input type="text" name="card_money" disabled="true"/>
+                        当前积分:<input type="text" name="vip_jifen"disabled="true"/>
+                        打折比率:<input type="text" name="vip_zhekou" disabled="true"/>
+                       </span>
+                    </div>
+                    <div id="checkout_content3">
+                       <span>
+                        应收金额:<input style="width:120px;" type="text" name="money_yingshou" disabled="true"/>
+                        已收押金:<input  type="text" name="money_yajin" disabled="true"/>
+                        优惠金额:<input type="text" name="money_youhui" disabled="true"/>
+                        实收金额:<input type="text" name="money_shishou" disabled="true"/><br>
+                        宾客支付:<input type="text" name="money_zhifu"/>
+                        找零:<input type="text" name="money_zhaoling" disabled="true"/>
+                        结账日期:<input type="text" name="money_zhaoling" disabled="true"/><br> 
+                        <input type="button" name="jiezhang" id="jiezhang" value="结账"/>
+                        <input type="button" name="dayin" id="dayin" value="打印发票"/>
+                        <input type="button" name="duifang" id="tuifang" value="退房"/>
+                       </span>
+                    </div>
+                    <div id="checkout_content4">
+                      <table cellspacing="0">
+                        <caption style="width:100%;font-size:19px;"> xxx 消费清单 合计:10000 </caption>
+                        <tr><th style="width:120px;">结账单号</th><th>房间号</th><th>客户姓名</th><th>房间单价</th><th>打折比例</th><th>打折金额</th><th>消费金额</th><th>应收金额</th><th>结账时间</th> </tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                      </table>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 酒店查询内容 -->
+    <div class="content">
+        <!-- 内容中左边模块 -->
+        <div class="content1">
+              <div id="zhuangtai">
+                <div id="state">状态</div>
+                <div class="fangxing">标准间</div>
+                <div id="zhuangtai_infor">
+                   主客姓名:<span>1</span><br>
+                   主客年龄:<span>2</span><br>
+                   折后单价:<span>3</span><br>
+                   房间电话:<span>5</span><br>
+                   所在区域:<span>4</span><br>
+                   入住时间:<span>6</span><br>
+                   预离时间:<span>7</span><br>
+                   已交押金:<span>8</span><br>
+                   应收金额:<span>8</span><br>
+                   联系方式:<span>8</span><br>
+                   宾客类型:<span>8</span>
+                </div>      
+              </div>
+              <div id="house_number"> 
+                <div class="fangxing">总房态</div>
+                <div id="housenum_infor">
+                房间总数:<span>1</span><br>
+                当前可供:<span>2</span><br>
+                当前占用:<span>3</span><br>
+                当前预订:<span>2</span><br>
+                当前停用:<span>3</span><br>
+                当前打扫:<span>3</span>
+              </div>
+              </div>
+              
+              <ul style="display:none;">
+                <li class="gongneng" ><span></span></li> 
+            </ul>
+        </div>
+        <!-- 内容中右边模块 -->
+        <div class="content2">
+            <!-- 显示位置和时间 -->
+            <div class="address">
+               <img src="images/home.png"><span>您当前的位置:</span>
+               <span id="time"></span>
+            </div>
+            <!-- 每点击一个功能显示一个内容块 -->
+            <ul>
+                <li id="house_state" style="display:block;">
+                  <div id="house_num">
+                   <!--  <b style="display:block;width:30px;height:100px;float:left;background:blue;margin-top:10px;">1楼</b> -->
+                    <span><p>1001</p>标准间</span>
+                    <span><p>1002</p>标准间</span>
+                    <span><p>1003</p>标准间</span>
+                    <span><p>1004</p>标准间</span>
+                    <span><p>1005</p>标准间</span>
+                    <span><p>1006</p>标准间</span>
+                    <span><p>1007</p>标准间</span>
+                    <span><p>1008</p>标准间</span>
+                    <span><p>1009</p>标准间</span>
+                    <span><p>1010</p>标准间</span>
+                    <span><p>2001</p>标准间</span>
+                    <span><p>2002</p>标准间</span>
+                    <span><p>2003</p>标准间</span>
+                    <span><p>2004</p>标准间</span>
+                    <span><p>2005</p>标准间</span>
+                    <span><p>2006</p>大床房</span>
+                    <span><p>2007</p>大床房</span>
+                    <span><p>2008</p>大床房</span>
+                    <span><p>2009</p>大床房</span>
+                    <span><p>2010</p>大床房</span>
+                    <span><p>3001</p>大床房</span>
+                    <span><p>3002</p>大床房</span>
+                    <span><p>3003</p>大床房</span>
+                    <span><p>3004</p>大床房</span>
+                    <span><p>3005</p>大床房</span>
+                    <span><p>3006</p>大床房</span>
+                    <span><p>3007</p>大床房</span>
+                    <span><p>3008</p>大床房</span>
+                    <span><p>3009</p>大床房</span>
+                    <span><p>3010</p>大床房</span>
+                    <span><p>4001</p>豪华套房</span>
+                    <span><p>4002</p>豪华套房</span>
+                    <span><p>4003</p>豪华套房</span>
+                    <span><p>4004</p>豪华套房</span>
+                    <span><p>4005</p>豪华套房</span>
+                    <span><p>4006</p>豪华套房</span>
+                    <span><p>4007</p>豪华套房</span>
+                    <span><p>4008</p>豪华套房</span>
+                    <span><p>4009</p>豪华套房</span>
+                    <span><p>4010</p>豪华套房</span>
+                  </div>
+                  <div id="house_monitu">
+                    <div id="monitu_head">
+                      <span id="house_btn">
+                      <input type="button" name="allhouse" id="allhouse_btn" value="全部显示"/>
+                      <input type="button" name="biao" id="biao_btn" value="标准间"/>
+                      <input type="button" name="da" id="da_btn" value="大床房"/>
+                      <input type="button" name="hao" id="hao_btn" value="豪华套间"/>
+                      </span>
+                    </div>
+                    <div id="monitu_table">
+                      <table cellspacing="0">
+                        <tr bgcolor='#ADADAD' ><th style="height:30px;" colspan="6">xxx房间(房态:xxx) 消费清单</th></tr>
+                        <tr><th>消费项目</th><th>项目单价</th><th>打折比例</th><th>消费金额</th><th style="width:130px;">消费时间</th><th>登记人</th></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                      </table>
+                    </div>
+                    <div id="monitu">
+                      <div class="monitu1">
+                          <div class="monitu1_content1" style="background:#B2B2B2;"></div>
+                          <div class="monitu1_content2" style="border-right:1px solid #B2B2B2"></div>
+                          <span style="color:#B2B2B2">空房</span>
+                      </div>
+                      <div class="monitu1">
+                        <div class="monitu1_content1" style="background:#7899F6;"></div>
+                        <div class="monitu1_content2" style="border-right:1px solid #7899F6;"></div>
+                        <span style="color:#7899F6;">入住</span>
+                      </div>
+                      <div class="monitu1">
+                        <div class="monitu1_content1" style="background:#F8CC47;"></div>
+                        <div class="monitu1_content2" style="border-right:1px solid #F8CC47;"></div>
+                        <span style="color:#F8CC47;">预订</span>
+                      </div>
+                      <div class="monitu1">
+                        <div class="monitu1_content1" style="background:#67CB33;"></div>
+                        <div class="monitu1_content2" style="border-right:1px solid #67CB33;"></div>
+                        <span style="color:#67CB33;">打扫中</span>
+                      </div>
+                      <div class="monitu1">
+                        <div class="monitu1_content1" style="background:#FF6D6E;"></div>
+                        <div class="monitu1_content2" style="border-right:1px solid #FF6D6E;"></div>
+                        <span style="color:#FF6D6E;">停用</span>
+                      </div>   
+                    </div>
+                  </div>  
+                </li>    
+            </ul>
+        </div>
+    </div>
+    <!-- 酒店报表统计模块 -->
+    <div class="content">
+        <!-- 内容中左边模块 -->
+        <div class="content1">
+            <dl class="admin">
+                <dt>04123170<p style="display:block;margin-top:-48px;">号</p></dt>   
+                <dd><b style="color:#369da3;">小马</b> 管理员 <br>欢迎登录！</dd>
+            </dl>
+              <ul>
+                <li class="gongneng" style="letter-spacing:5px;"><img src="images/daybaobiao.png" style="margin-left:35px;"><span>日报表统计</span></li>
+                <li class="" style="letter-spacing:5px;"><img src="images/monthbaobiao.png" style="margin-left:35px;"><span>月报表统计</span></li>
+            </ul>
+        </div>
+        <!-- 内容中右边模块 -->
+        <div class="content2">
+            <!-- 显示位置和时间 -->
+            <div class="address">
+               <img src="images/home.png"><span>您当前的位置:</span>
+               <span id="time"></span>
+            </div>
+            <!-- 每点击一个功能显示一个内容块 -->
+            <ul>
+                <li style="display:block;">
+                  <div id="sale_day">日报表统计</div>
+                  <div id="sale_days">
+                    营业日: <input placeholder="请输入日期" class="laydate-icon"  onclick="laydate()"/>
+                    <input type="button" name="sale_search" id="sale_search" value="查询" />
+                    <input type="button" name="sale_search" id="sale_dayin" value="打印报表" />
+                  </div>
+                  <span id="seach_days">查询条件为: 日报表:<span id="search_date">2016-1-1</span></span>
+                  <div id="sale_days_table">
+                    <table id="sale_days_table1" cellspacing='0'>
+                      <tr>
+                        <th rowspan='2' style="width:100px;">单号</th><th rowspan='2'>房号</th><th rowspan='2'>姓名</th><th rowspan='2'>入住日期</th><th rowspan='2'>离店日期</th><th rowspan='2' style="width:70px;">客户类型</th><th rowspan='2'>房型</th><th rowspan='2'>房价</th><th colspan='3'>当日控收</th><th colspan='2'>支付</th>
+                      </tr>
+                      <tr>
+                        <th>房费</th><th>消费</th><th>合计</th><th>现金</th><th>银行卡</th>
+                      </tr>
+                      <tr>
+                        <td>0123522</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                      </tr>
+                       <tr>
+                        <td>0123522</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                      </tr>
+                       <tr>
+                        <td>0123522</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div id="sale_add">
+                    <div id="sale_days_records">共<span>xx</span>条记录</div>
+                    <div id="sale_days_money">房费:<span>xx</span>元</div>
+                    <div id="sale_days_elsemoney">消费:<span>xx</span>元</div>
+                    <div id="sale_days_allmoney">合计消费:<span>xx</span>元</div>
+                  </div>
+                </li>
+                <li>
+                  <div id="sale_month">月报表统计</div>
+                  <div id="sale_month_content">
+                    <div id="sale_month_time">
+                      <span id="sale_month_up"><img src="images/up.png"></span>
+                      <span id="sale_month_time1">月份: 2016 年 1 月</span>
+                      <span id="sale_month_down"><img src="images/down.png"></span>
+                    </div>
+                    <div id="sale_month_table">
+                      <table id="sale_month_table1" cellspacing='0'>
+                        <tr>
+                        <th rowspan='2' style="width:80px">日期</th><th rowspan='2' style="width:80px">客户记录</th><th rowspan='2'>房费</th><th rowspan='2'>消费</th><th rowspan='2' style="width:80px">合计消费</th><th rowspan='2' style="width:70px;">现金收入</th><th rowspan='2'>银行卡</th><th colspan='3'>房型入住情况</th>
+                      </tr>
+                      <tr>
+                        <th>标准间</th><th>大床房</th><th>豪华套间</th>
+                      </tr>
+                      <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td> </tr> 
+                      </table>
+                    </div>
+                  </div>
+                  <div id="sale_month_add">
+                    <div id="sale_month_records">共<span>xx</span>条记录</div>
+                    <div id="sale_month_money">房费:<span>xx</span>元</div>
+                    <div id="sale_month_elsemoney">消费:<span>xx</span>元</div>
+                    <div id="sale_month_addmoney">消费:<span>xx</span>元</div>
+                    <div id="sale_month_biao">共<span>xx</span>标准间</div>
+                    <div id="sale_month_da">共<span>xx</span>大床房</div>
+                    <div id="sale_month_hao">共<span>xx</span>豪华套房</div>
+                    <div id="sale_month_allhouse">共<span>xx</span>间房</div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 酒店系统维护模块 -->
+    <div class="content">
+        <!-- 内容中左边模块 -->
+        <div class="content1">
+            <dl class="admin">
+                <dt>04123170<p style="display:block;margin-top:-48px;">号</p></dt>   
+                <dd><b style="color:#369da3;">小马</b> 管理员 <br>欢迎登录！</dd>
+            </dl>
+              <ul>
+                <li class="gongneng"><img src="images/admit_infor.png" style="margin:10px 0 0 35px;"><span style="letter-spacing:5px;">管理员信息</span></li>
+                <li class=""><img src="images/beifen.png" style="margin:10px 0 0 35px;"><span style="letter-spacing:5px;">数据备份</span></li>
+                <li class=""><img src="images/qingli.png" style="margin:10px 0 0 35px;"><span style="letter-spacing:5px;">数据库清理</span></li>
+              </ul>
+        </div>
+        <!-- 内容中右边模块 -->
+        <div class="content2">
+            <!-- 显示位置和时间 -->
+            <div class="address">
+               <img src="images/home.png"><span>您当前的位置:</span>
+               <span id="time"></span>
+            </div>
+            <!-- 每点击一个功能显示一个内容块 -->
+            <ul>
+                <li style="display:block;">
+                  <div id="admit_infor">
+                    <div id="admit_infor_head">管理员信息</div>
+                    <div id="admit_infor1">
+                      <div>
+                        账号:<span id="admit_infor_num">04123170</span><br>
+                        姓名:<span id="admit_infor_name">小马</span><br>
+                        性别:<span id="admit_infor_sex">男</span><br>
+                        电话:<span id="admit_infor_phone">123456789</span><br>
+                        学历:<span id="admit_infor_school">本科</span>
+                      </div>
+                    </div>
+                    <div id="admit_infor_pic"><span>照片</span></div>
+                    <div id="admit_infor_pic1">  
+                      <input type="file" name="updatepic" value=""/>
+                      <span>上传图片</span>
+                    </div>
+                    <div id="admit_password_update">
+                      <div id="admit_password_update1">
+                        <span id="admit_password_head">修改密码</span>
+                        <span id="admit_password_content">
+                          账&nbsp&nbsp&nbsp号:<input type="text" name="admit_num" id="admit_num" disabled="true"><br>
+                          输入原密码:<input type="password" name="admit_password_old" id="admit_password_old" /><br>
+                          输入新密码:<input type="password" name="admit_password_new" id="admit_password_new" /><br>
+                          确认新密码:<input type="password" name="admit_password_new" id="admit_password_new" /><br>
+                          <input type="button" name="password_btn" id="password_btn" value="修改" />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 酒店更多功能模块 -->
+     <div class="content">
+        <!-- 内容中左边模块 -->
+        <div class="content1">
+            <dl class="admin">
+                <dt>04123170<p style="display:block;margin-top:-48px;">号</p></dt>   
+                <dd><b style="color:#369da3;">小马</b> 管理员 <br>欢迎登录！</dd>
+            </dl>
+              <ul>
+                 <li class="gongneng"><span style="font-size:18px;letter-spacing:3px;"><img src="images/xianlu.png" style="margin:8px 0 0 25px;">平面图及列车表</span></li>
+            </ul>
+        </div>
+        <!-- 内容中右边模块 -->
+        <div class="content2">
+            <!-- 显示位置和时间 -->
+            <div class="address">
+               <img src="images/home.png"><span>您当前的位置:</span>
+               <span id="time"></span>
+            </div>
+            <!-- 每点击一个功能显示一个内容块 -->
+            <ul>
+                <li style="display:block;">
+                  <div id="getmap"></div>
+                  <div id="car_list">
+                    <div id="car_head">远航皇城大酒店</div>
+                    <h5 id="near_car">附近公交站:</h5>
+                    <div id="car_time"> 
+                      <div id="jichang"><em>远航专车:</em> 远航<——>机场
+                        <span>
+                          <p>24小时营业,免费接送</p>
+                          <p>每一个小时一趟</p>
+                        </span>
+                      </div>
+                      <div id="huochezhan"><em>121:</em> 远航<——>火车站
+                        <span>
+                          <p>首班:06:00</p>
+                          <p>末班:23:00</p>
+                        </span> 
+                      </div>
+                      <div id="furongyuan"><em>325:</em> 远航<——>大唐芙蓉园
+                        <span>
+                          <p>首班:07:00</p>
+                          <p>末班:20:00</p>
+                        </span>
+                      </div>
+                      <div id="zoos"><em>168:</em> 远航<——>秦岭动物园
+                        <span>
+                          <p>首班:07:00</p>
+                          <p>末班:18:00</p>
+                        </span>
+                      </div>
+                      <div id="yanta"><em>199:</em> 远航<——>大雁塔
+                        <span>
+                          <p>首班:06:30</p>
+                          <p>末班:21:00</p>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/main.js" ></script>
+    <script type="text/javascript" src="js/Content1.js" ></script>
+    <script type="text/javascript" src="js/Content2.js" ></script>
+    <script type="text/javascript" src="js/Content5.js" ></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+    <script type="text/javascript" src="laydate/laydate.js"></script>
+  </body>
+</html>
